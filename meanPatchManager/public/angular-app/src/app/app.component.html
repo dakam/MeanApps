@@ -1,0 +1,73 @@
+<div  class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary" >
+  <div class="container">
+   
+
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+
+        <li class="nav-item">
+          <a  class="nav-link" routerLink="/" >Home</a>
+        </li>
+        <li class="nav-item">
+          <a  class="nav-link" routerLink="/dashboard" >Dashboard</a>
+        </li>
+
+
+        <li class="nav-item">
+          <a  class="nav-link"  routerLink="/patches">Patch List</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/patch/add" >Add Patch</a>
+        </li>
+        <li   class="nav-item" *ngIf="!isLoggedIn()">
+          <a  class="nav-link" routerLink="/register" >Register</a>  
+        </li>
+        <li   class="nav-item" *ngIf="isLoggedIn()">
+          <a  class="nav-link" routerLink="/profile" >Profile</a>  
+        </li>
+
+      </ul>
+      <ul class="navbar-nav ms-md-auto">
+
+      <form  *ngIf="!isLoggedIn()" class="navbar-form navbar-right" role="login" #loginForm="ngForm"  (ngSubmit)="loginUser(loginForm)">
+        <input type="text"  class="input-sm" placeholder="Username" name="username" ngModel  #username="ngModel" />
+        &nbsp;<input type="password"  class="input-sm" placeholder="Password" name="password" ngModel  #password="ngModel" />
+        &nbsp;&nbsp;
+        <input type="submit" class="btn btn-success" />
+      </form>
+
+    </ul>
+    <ul *ngIf="isLoggedIn()" class="new navbar-nav navbar-right">
+      <li><p class="navbar-text">Welcome &nbsp;</p></li>
+      <li><button class="navbar-btn btn-sm btn-info" (click)="logout()">Logout</button></li>
+    </ul>
+    
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    
+    <router-outlet></router-outlet>
+
+  </div>
+  </div>
+
+  
+  <footer class="footer page-footer">
+    <div class="container">
+        <p class="text-muted text-center" >
+              <!-- Copyright -->
+  <div class="footer-copyright text-center py-3 ">© 2021 MWA assignment by Damiano Kato:
+    <a class=" text-success" href="https://github.com/dakam/"> Dakam</a>
+  </div>
+  <!-- Copyright -->
+         
+            <br>
+    
+    </div>
+
+</footer>
+

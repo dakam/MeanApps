@@ -1,0 +1,55 @@
+<br/> <br/><br/><br/>
+
+
+<div class="alert alert-danger" *ngIf="err" >
+    {{error}}
+</div>
+
+<div class="alert alert-success" *ngIf="success" >
+    <h5>{{message}}</h5>
+</div>
+
+<div class="card">
+    <div class="card-header heading">
+        <h2><h2>Add new Patch </h2></h2>
+
+    </div>
+    <div class="card-body">
+        <form  #patchForm="ngForm"  (ngSubmit)="addPatch(patchForm)">
+            <fieldset>
+            <div class="form-group">
+            <label for="name">Name </label> 
+            <input name="name" minlength="5" class="form-control" ngModel type="text" #name="ngModel"  required /> 
+
+            <div class="has-error" *ngIf="name.invalid && (name.dirty || name.touched)">
+                <div class="form-label text-danger"  *ngIf="name.errors?.required">Patch Name is required.</div>
+                <div class="form-label text-danger"  *ngIf="name.errors?.minlength">Patch Name must atleast be 4 characters</div>
+               
+            </div>
+           
+        </div>
+            <div class="form-group">
+                <label for="description">Description </label> 
+              
+                <textarea rows="3" cols="5" class="form-control" ngModel name="description" #description="ngModel"> </textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="vendor">Vendor </label> 
+                <input name="vendor" class="form-control" ngModel type="text"  #vendor="ngModel" required /> 
+            </div>
+            
+            <div class="form-group">
+                <label for="year">Release Year </label> 
+                <input name="year" class="form-control" ngModel type="number" #year="ngModel" required /> 
+            </div>
+            
+            <br/>
+            
+            <button class="btn btn-primary"  type="submit">Submit </button>
+            </fieldset>
+            </form>
+
+
+    </div>
+  </div>

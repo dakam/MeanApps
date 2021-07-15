@@ -1,0 +1,32 @@
+{
+  "name": "meanpatchmanager",
+  "version": "1.0.0",
+  "description": "Patch Management MEAN Application",
+  "main": "app.js",
+  "dependencies": {
+    "angular": "^1.8.2",
+    "angular-jwt": "^0.1.11",
+    "angular-route": "^1.8.2",
+    "bcrypt": "^5.0.1",
+    "bootstrap": "^5.0.2",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "jquery": "^3.6.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.12.15",
+    "npm-run-all": "^4.1.5",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "startFrontEnd":"cd ./public/angular-app/ && npm start",
+    "startBackend": "node app.js",
+    "start": "npm-run-all --parallel startFrontEnd startBackend",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "PATCH"
+  ],
+  "author": "Dakam",
+  "license": "ISC"
+}
